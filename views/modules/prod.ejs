@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+   <div class="panel-heading" role="tab">
+      <h4 class="panel-title text-center">
+         <button id="seeMoreBtn-2" type="button" class="btn btn-default pull-left disabled" style="margin-top: -7px; padding-top: 7px" data-toggle="modal" data-target="#modal-more-2">
+            <i class="fa fa-fw icon-visual-eye"></i>
+         </button>
+         <span>Gift (Accepted) <span ng-show="m.spanCantProd">({{ m.cantProd }})</span></span>
+         <button type="button" ng-model="m.creatE" ng-click="m.create()" class="btn btn-default pull-right" style="margin-top: -6px">
+            <i class="fa fa-fw icon-add-symbol"></i>
+         </button>
+      </h4>
+   </div>
+
+   <a id="prod-panel" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <div class="panel-body panel-mid" role="tab" id="headingOne">
+         <div class="selected">
+            <div class="row">
+               <div ng-hide="m.comment_ev" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                  Tap here to see a list of gifts to evaluate.
+               </div>
+               <div id="fProd" class="hidden">
+                  <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3">
+                     <b>{{ m.FinalProd.ourVj }}</b>
+                  </div>
+                  <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 text-center">
+                     <b>{{ m.FinalProd.cardname }}</b>
+                     <br/>
+                     <span ng-show="m.textProd">by</span> {{ m.FinalProd.originator }}
+                  </div>
+                  <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 text-right">
+                     <b class="current-value">{{ m.FinalProd.myVj }}</b>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3">
+                  <b class="money">
+                     <span ng-show="m.textProd">£</span>{{ m.FinalProd.ourco_gift }}
+                  </b>
+               </div>
+               <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 text-center">
+                  <b>
+                     <span ng-show="m.textProd">from</span> {{ m.FinalProd.gifter_name }}
+                  </b>
+               </div>
+               <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 text-right">
+                  <b class="money">
+                     <span ng-show="m.textProd">£</span>{{ m.FinalProd.latest_co_gift }}
+                  </b>
+               </div>
+               <input type="text" id="card_id" class="form-control hidden" value="{{ m.FinalProd.card_id }}">
+            </div>
+         </div>
+      </div>
+   </a>
+
+   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+         <table class="table table-condensed table-hover" data-provides="rowlink">
+            <tbody data-link="row" class="rowlink">
+               <tr ng-repeat="c in m.Prod | orderBy: m.predicate : m.reverse">
+                  <td class="num-left"><a ng-click="m.ProdSelect(c)" class="closepanel">{{ c.ourVj }}</a></td>
+                  <td class="text-center">{{ c.cardname }}</td>
+                  <td class="text-right num-right">{{ c.myVj }}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+
+</div>

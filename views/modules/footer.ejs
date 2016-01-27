@@ -1,0 +1,320 @@
+<div id="footer">
+   <!-- default & like -->
+   <div class="container animated fadeInUp OneSecDelay">
+      <form id="LikeForm" role="form" ng-hide="m.defLike">
+         <div class="row">
+            <!-- button return -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" ng-click="m.totalRefresh()">
+                  <i class="fa fa-fw icon-refresh-5"></i>
+               </button>
+            </div>
+
+            <!-- input -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <input type="text" id="comment" class="form-control" placeholder="Comment">
+            </div>
+
+            <!-- number select -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- value -->
+               <select id="value" ng-change="m.like()" ng-model="m.lgLike" type="button" class="select2 btn btn-default btn-footer score-select score">
+                  <option></option>
+                  <option value="10">10</option>
+                  <option value="9">9</option>
+                  <option value="8">8</option>
+                  <option value="7">7</option>
+                  <option value="6">6</option>
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+               </select>
+            </div>
+         </div>
+
+         <div class="row footer-second">
+            <!-- button help -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" data-toggle="modal" data-target="#modal-two">
+                  <i class="fa fa-fw icon-question"></i>
+               </button>
+            </div>
+
+            <!-- submit button -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <!-- default btn -->
+               <button type="button" class="btn btn-lg btn-login disabled btn-grey" ng-hide="m.defaultBtn"></button>
+
+               <!-- like btn -->
+               <button id="submitLike" type="submit" class="btn btn-lg btn-login" ng-show="m.lgLike">LIKE</button>
+            </div>
+
+            <!-- $ button -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- value btn -->
+               <button id="v-one" type="button" class="btn btn-default btn-footer back-l-v btn-centered" ng-click="m.DefaultToGift()">
+                  <h1 class="icon-v">V&nbsp;</h1>
+               </button>
+            </div>
+         </div>
+      </form>
+   </div>
+
+   <!-- gift/revoke -->
+   <div class="container">
+      <div ng-show="m.gift">
+         <div class="row">
+            <!-- button return -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" ng-click="m.totalRefresh()">
+                  <i class="fa fa-fw icon-refresh-5"></i>
+               </button>
+            </div>
+
+            <!-- input -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <input type="text" id="comment_gift" class="form-control" placeholder="Comment">
+            </div>
+
+            <!-- number select -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- money -->
+               <select id="price" ng-model="m.lgPrice" type="button" class="select2 btn btn-default btn-footer score-select price price-select">
+                  <!--<option style="color: green" disabled>£{{ m.Balance | number:2 }}</option>-->
+                  <option value="10">£10</option>
+                  <option value="5">£5</option>
+                  <option value="2">£2</option>
+                  <option value="1">£1</option>
+                  <option value="0.50">£0.50</option>
+                  <option value="0.20">£0.20</option>
+                  <option value="0.10">£0.10</option>
+                  <option value="0.05">£0.05</option>
+                  <option value="0.02">£0.02</option>
+                  <option value="0.01" selected="selected">£0.01</option>
+               </select>
+            </div>
+         </div>
+
+         <div class="row footer-second">
+            <!-- button help -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" data-toggle="modal" data-target="#modal-two">
+                  <i class="fa fa-fw icon-question"></i>
+               </button>
+            </div>
+
+            <!-- submit button -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <!-- green gift btn -->
+               <button type="button" class="btn btn-lg btn-login btn-gift disabled btn-grey" ng-hide="m.priceDef"></button>
+
+               <form id="GiftForm" role="form">
+                  <button id="sendGift" type="submit" class="btn btn-lg btn-login btn-gift pull-left" ng-show="m.lgGift">GIFT</button>
+               </form>
+
+               <form id="RevokeForm" role="form">   
+                  <button id="revokeGift" type="submit" class="btn btn-lg btn-login btn-revoke pull-right" ng-show="m.lgRevoke">REVOKE</button>
+               </form>
+            </div>
+
+            <!-- $ button -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- pound btn -->
+               <button id="p-one" type="button" class="btn btn-default btn-footer btn-centered" ng-click="m.GiftToDefault()">
+                  <i class="fa fa-fw icon-pound"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- create -->
+   <div class="container">
+      <form id="CreateForm" role="form" ng-show="m.creatE">
+         <div class="row">
+            <!-- button return -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" ng-click="m.totalRefresh()">
+                  <i class="fa fa-fw icon-refresh-5"></i>
+               </button>
+            </div>
+
+            <!-- input -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <input type="text" id="original_comment" class="form-control" placeholder="Comment">
+            </div>
+
+            <!-- number select -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- value -->
+               <select id="value2" type="button" class="select2 btn btn-default btn-footer score-select score">
+                  <option></option>
+                  <option value="10">10</option>
+                  <option value="9">9</option>
+                  <option value="8">8</option>
+                  <option value="7">7</option>
+                  <option value="6">6</option>
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+               </select>
+            </div>
+         </div>
+
+         <div class="row footer-second">
+            <!-- button help -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" data-toggle="modal" data-target="#modal-two">
+                  <i class="fa fa-fw icon-question"></i>
+               </button>
+            </div>
+
+            <!-- submit button -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <!-- blue create btn -->
+               <button type="submit" class="btn btn-lg btn-login btn-create">CREATE</button>
+            </div>
+
+            <!-- $ button -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- value btn -->
+               <button type="button" class="btn btn-default btn-footer disabled btn-centered">
+                  <h1 class="icon-v">V&nbsp;</h1>
+               </button>
+            </div>
+         </div>
+      </form>
+   </div>
+
+   <!-- invite -->
+   <div class="container">
+      <form id="inviteLightForm" role="form" ng-show="m.invitE"> <!-- inviteForm -->
+         <div class="row">
+            <!-- button return -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" ng-click="m.totalRefresh()">
+                  <i class="fa fa-fw icon-refresh-5"></i>
+               </button>
+            </div>
+
+            <!-- input -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <input type="text" id="invite_commet" class="form-control" placeholder="Comment">
+            </div>
+
+            <!-- number select -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- money -->
+               <select id="value-3" type="button" class="select2 btn btn-default btn-footer score-select price price-select disabled">
+                  <!--<option style="color: green" disabled>£{{ m.Balance | number:2 }}</option>-->
+                  <option value="10">£10</option>
+                  <option value="5">£5</option>
+                  <option value="2">£2</option>
+                  <option value="1">£1</option>
+                  <option value="0.50">£0.50</option>
+                  <option value="0.20">£0.20</option>
+                  <option value="0.10">£0.10</option>
+                  <option value="0.05">£0.05</option>
+                  <option value="0.02">£0.02</option>
+                  <option value="0.01" selected="selected">£0.01</option>
+               </select>
+            </div>
+         </div>
+
+         <div class="row footer-second">
+            <!-- button help -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" data-toggle="modal" data-target="#modal-two">
+                  <i class="fa fa-fw icon-question"></i>
+               </button>
+            </div>
+
+            <!-- submit button -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <!-- blue create btn -->
+               <button type="submit" class="btn btn-lg btn-login btn-create">INVITE</button>
+            </div>
+
+            <!-- $ button -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- pound btn -->
+               <button type="button" class="btn btn-default btn-footer disabled btn-centered">
+                  <i class="fa fa-fw icon-pound"></i>
+               </button>
+            </div>
+         </div>
+      </form>
+   </div>
+
+   <!-- accept/reject -->
+   <div class="container">
+      <div ng-show="m.reject">
+         <div class="row">
+            <!-- button return -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" ng-click="m.totalRefresh()">
+                  <i class="fa fa-fw icon-refresh-5"></i>
+               </button>
+            </div>
+
+            <!-- input -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <input type="text" id="comment_accept" class="form-control" placeholder="Comment">
+            </div>
+
+            <!-- number select -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- money -->
+               <select id="price" ng-change="m.SelectPrice()" ng-model="m.lgPrice" type="button" class="select2 btn btn-default btn-footer score-select price price-select">
+                  <option value="10">£10</option>
+                  <option value="5">£5</option>
+                  <option value="2">£2</option>
+                  <option value="1">£1</option>
+                  <option value="0.50">£0.50</option>
+                  <option value="0.20">£0.20</option>
+                  <option value="0.10">£0.10</option>
+                  <option value="0.05">£0.05</option>
+                  <option value="0.02">£0.02</option>
+                  <option value="0.01" selected="selected">£0.01</option>
+               </select>
+            </div>
+         </div>
+
+         <div class="row footer-second">
+            <!-- button help -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <button type="button" class="btn btn-default btn-footer" data-toggle="modal" data-target="#modal-two">
+                  <i class="fa fa-fw icon-question"></i>
+               </button>
+            </div>
+
+            <!-- submit button -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+               <!-- green gift btn -->
+               <button type="button" class="btn btn-lg btn-login btn-gift disabled btn-grey" ng-hide="m.acceptDef"></button>
+
+               <form id="acceptForm" role="form">
+                  <button id="acceptGift" type="submit" class="btn btn-lg btn-login btn-gift pull-left" ng-show="m.acceptBTN" style="width: 49%">ACCEPT</button>
+               </form>
+               <form id="rejectForm" role="form">   
+                  <button id="rejectGift" type="submit" class="btn btn-lg btn-login btn-reject pull-right" ng-show="m.acceptBTN" style="width: 49%">REJECT</button>
+               </form>               
+            </div>
+
+            <!-- $ button -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+               <!-- pound btn -->
+               <button type="button" class="btn btn-default btn-footer back-l-g btn-centered" ng-click="m.accToDef()">
+                  <i class="fa fa-fw icon-pound"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

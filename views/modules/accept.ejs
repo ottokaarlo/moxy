@@ -1,0 +1,115 @@
+<div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true" ng-show="m.acceptProd">
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+         <h4 class="panel-title text-center">
+            <button id="seeMoreBtn" type="button" class="btn btn-default pull-left disabled" style="margin-top: -7px; padding-top: 7px" data-toggle="modal" data-target="#modal-more">
+               <i class="fa fa-fw icon-visual-eye"></i>
+            </button>
+            <span style="margin-right: 28px">Gift (Offered to me) <span ng-show="m.gspanCantProd">({{ m.gcantProd }})</span></span>
+         </h4>
+      </div>
+      <a id="accept-prod-panel" data-toggle="collapse" data-parent="#accordion3" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+         <div class="panel-body panel-mid" role="tab" id="headingFive">
+            <div class="selected">
+               <!-- :before choose -->
+               <div class="row">
+                  <div id="helpComment2" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                     Tap here to see a list of gifts offered to you.
+                  </div>
+                  <div id="gProd" class="hidden">
+                     <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3">
+                        <b>{{ m.gifterProd.ourVj }}</b>
+                     </div>
+                     <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 text-center">
+                        <b>{{ m.gifterProd.cardname }}</b>
+                        <br/>
+                        <span ng-show="m.textgProd">by</span> {{ m.gifterProd.originator }}
+                     </div>
+                     <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 text-right">
+                        <b class="current-value">{{ m.gifterProdProd.myVj }}</b>
+                     </div>
+                  </div>
+               </div>
+               <!-- :after choose -->
+               <div class="row">
+                  <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3">
+                     <b class="money">
+                        <span ng-show="m.textgProd">£</span>{{ m.gifterProd.ourco_gift }}
+                     </b>
+                  </div>
+                  <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 text-center">
+                     <b>
+                        <span ng-show="m.textgProd">from</span> {{ m.gifterProd.gifter_name }}
+                     </b>
+                  </div>
+                  <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 text-right">
+                     <b class="money">
+                        <span ng-show="m.textgProd">£</span>{{ m.gifterProd.gifter_co_gift }}
+                     </b>
+                  </div>
+                  <input type="text" id="gift_id_2" class="form-control hidden" value="{{ m.gifterProd.gift_id }}">
+               </div>
+            </div>
+         </div>
+      </a>
+      <!-- list -->
+      <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+         <div class="panel-body">
+            <table class="table table-condensed table-hover" data-provides="rowlink">
+               <tbody data-link="row" class="rowlink">
+                  <tr ng-repeat="c in m.gProd | orderBy: m.date_offered">
+                     <td class="num-left" style="width: 11%"><a ng-click="m.giftSelect(c)" class="closepanel">£{{ c.gifter_co_gift }}</a></td>
+                     <td class="text-center">{{ c.cardname }}</td>
+                     <td class="text-right num-right">{{ c.myVj }}</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+
+   <!-- Project -->
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+         <h4 class="panel-title text-center">
+            Project
+         </h4>
+      </div>
+      <a data-toggle="collapse" data-parent="#accordion3" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+         <div class="panel-body panel-mid" role="tab" id="headingSix">
+            <div class="selected">
+               <br>
+            </div>
+         </div>
+      </a>
+      <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+         <div class="panel-body">
+            <table class="table table-condensed">
+               <tbody>
+                  <tr>
+                     <td class="num-left"></td>
+                     <td class="text-center">To be added...</td>
+                     <td class="text-right num-right"></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+
+   <!-- Person -->
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+         <h4 class="panel-title text-center">
+            Person
+         </h4>
+      </div>
+      <a data-toggle="collapse" data-parent="#accordion3" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+         <div class="panel-body panel-mid" role="tab" id="headingSeven">
+            <div class="selected">
+               <br>
+            </div>
+         </div>
+      </a>
+   </div>
+</div>

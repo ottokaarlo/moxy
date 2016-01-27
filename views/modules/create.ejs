@@ -1,0 +1,56 @@
+<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true" ng-show="m.createProd">
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+         <h4 class="panel-title text-center">
+            Product Title
+         </h4>
+      </div>
+      <input type="text" id="prod_name" class="form-control input-two text-center" placeholder="Enter Card Title">
+   </div>
+
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+         <h4 class="panel-title text-center">
+            Content Link
+         </h4>
+      </div>
+      <input type="text" id="content_link" class="form-control input-two text-center" placeholder="Enter Content Link">
+   </div>
+
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFour">
+         <h4 class="panel-title text-center">
+            Originator of Content <span ng-show="m.cspanCantPers">({{ m.ccantPers }})</span>
+         </h4>
+      </div>
+      <a id="createUser-panel" class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+         <input type="text" class="form-control input-two text-center" placeholder="Select Originator"  value="{{ m.FinalPeople2.username }}" id="originator_name">
+
+         <div ng-if="m.FinalPeople2.username === m.ME">
+            <input type="text" id="author_name" class="form-control input-two text-center hidden" placeholder="Select Originator"  value="{{ m.userNM }}" disabled>
+         </div>
+         <div ng-if="m.FinalPeople2.username !== m.ME">
+            <input type="text" id="author_name" class="form-control input-two text-center hidden" placeholder="Select Originator" value="{{ m.FinalPeople2.username }}" disabled>
+         </div>
+         <input type="text" id="author_id" class="form-control hidden" value="{{ m.FinalPeople2.uid }}">
+      </a>
+      <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+         <div class="panel-body">
+            <table class="table table-condensed table-hover">
+               <tbody data-link="row" class="rowlink">
+                  <tr ng-repeat="pp in m.People2 | orderBy: 'uid' : m.predicate : m.reverse">
+                     <td class="text-center" ng-if="pp.username === m.userNM">
+                        <a ng-click="m.PeopleSelect2(pp)" class="closepanel">"Me"</a>
+                     </td>
+                     <td class="text-center" ng-if="pp.username !== m.userNM">
+                        <a ng-click="m.PeopleSelect2(pp)" class="closepanel">
+                           {{ pp.username }}
+                        </a>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>

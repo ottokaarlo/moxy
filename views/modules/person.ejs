@@ -1,0 +1,93 @@
+<div class="panel panel-default">
+   <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title text-center">
+         <span style="margin-left: 28px">Person <span ng-show="m.spanCantPers">({{ m.cantPers }})</span></span>
+         <button type="button" ng-model="m.creatE" ng-click="m.invite()" class="btn btn-default pull-right" style="margin-top: -6px">
+            <i class="fa fa-fw icon-add-symbol"></i>
+         </button>
+      </h4>
+   </div>
+   <a id="person-panel" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <div class="panel-body panel-mid">
+         <div class="selected">
+            <div class="row">
+               <div ng-hide="m.comment3_gift" id="helpComment3" class="col-xs-12 text-center">
+                  Tap here to gift this to someone.
+               </div>
+               <div ng-hide="m.comment4_v" id="helpComment4" class="col-xs-12 text-center">
+                  Tap V to enable Gifting.
+               </div>
+               <div id="gPeople">
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                     <b>{{ m.FinalPeople.target_name }}</b><br/>
+                     <input type="text" id="receiver" class="form-control hidden" value="{{ m.FinalPeople.target_id }}">
+                     <input type="text" id="gift_id" class="form-control hidden" value="{{ m.FinalPeople.gift_id }}">
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
+                     <b class="money"><span ng-show="m.value2">£</span>{{ m.FinalPeople.co_gift }}</b><br/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </a>
+   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" ng-show="m.showTable">
+         <table class="table table-condensed table-hover" ng-show="m.tableFull">
+            <tbody data-link="row" class="rowlink">
+               <tr ng-repeat="p in m.People | orderBy: m.predicate :m.reverse">
+                  <!-- <tr ng-repeat="p in m.People | orderBy: 'date_valued'"> -->
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '0'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">{{ p.target_Vj }}</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '1'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">&nbsp;</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '2'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">{{ p.target_Vj }}</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '3'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">&nbsp;</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '4'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">&nbsp;</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '5'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">&nbsp;</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '6'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">{{ p.target_Vj }}</a>
+                  </td>
+                  <td style="width: 33%" class="num-left" ng-if="p.target_status === '7'">
+                     <a ng-click="m.PeopleSelect(p)" class="closepanel">{{ p.target_Vj }}</a>
+                  </td>
+
+                  <td style="width: 34%" class="text-center" ng-if="p.target_status === '0'">
+                     <b>{{ p.target_name }}</b>
+                  </td>
+
+                  <td style="width: 34%" class="text-center" ng-if="p.target_status !== '0'">
+                     <span ng-if="p.target_id === 0">
+                        <i>{{ p.target_name }}</i>
+                     </span>
+                     <span ng-if="p.target_id !== 0">
+                        {{ p.target_name }}
+                     </span>
+                  </td>
+
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '0'">&nbsp;</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '1'">£ {{ p.co_gift }}</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '2'">£ {{ p.co_gift }}</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '3'">&nbsp;</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '4'">&nbsp;</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '5'">&nbsp;</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '6'">&nbsp;</td>
+                  <td width="33%" class="text-right margin-right money" ng-if="p.target_status === '7'">&nbsp;</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>

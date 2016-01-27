@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Moxy</title>
+   <!-- Meta -->
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <meta name="keywords" content="MediaCenter, Template, eCommerce">
+   <meta name="robots" content="all">
+
+   <!-- Animate CSS -->
+   <link href="/../css/animate.css" rel="stylesheet">
+
+   <!-- Bootstrap Core CSS -->
+   <link href="/../css/bootstrap.min.css" rel="stylesheet">
+
+   <!-- Customizable CSS -->
+   <link href="/../css/main.css" rel="stylesheet">
+
+   <!-- Font Awesome CSS -->
+   <link href="/../css/font-awesome.min.css" rel="stylesheet">
+
+   <!-- PICTO Font -->
+   <link href="/../pictoicons/css/picto.css" rel="stylesheet">
+
+   <script src="/../js/jquery.min.js"></script>
+   <script src="/../js/bootstrap.min.js"></script>
+   <script src="/../js/angular.min.js"></script>
+   <script src="/../js/login.js"></script>
+
+</head>
+<body ng-app="ecosquared" class="background-login">
+   <div class="container" ng-controller="loginCtrl as l">
+      <div class="innerLogin">
+         <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+               <h1 class="text-right login-title animated fadeInLeft TwoSecDelay">
+                  ecoSquared
+               </h1>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 border-left animated fadeIn TwoSecDelay">
+               <div class="centered">
+                  <h1 class="h1-log" ng-click="l.login()" ng-hide="l.lg">
+                     <a class="log-title animated fadeIn ThreeSecDelay" href="#">
+                        <span class="text-underline">LOGIN</span>
+                     </a>
+                  </h1>
+                  <h1 class="h1-log" ng-click="l.register()" ng-hide="l.rg">
+                     <a class="log-title animated fadeIn ThreeSecDelay" href="#">
+                        <span class="text-underline">REGISTER</span>
+                     </a>
+                  </h1>
+                  <h1 class="h1-log" ng-click="l.validate()" ng-hide="l.vl">
+                     <a class="log-title animated fadeIn ThreeSecDelay" href="#">
+                        <span class="text-underline">VALIDATE</span>
+                     </a>
+                  </h1>
+               </div>
+
+               <!-- log in -->
+               <form id="loginForm" role="form" novalidate ng-show="l.lgInput" class="login-padding">
+                  <div class="animated fadeInUp TwoSecDelay">
+                     <input type="text" id="user" class="form-control logreg" required="required" placeholder="Username">
+
+                     <input type="password" id="pass" class="form-control" required="required" placeholder="Password">
+                     <br>
+                  </div>
+
+                  <div class="animated fadeInUp ThreeSecDelay">
+                     <div class="alert alert-danger" id="alert_error">
+                        <a class="close" onclick="$('#alert_error').hide()">×</a>
+                        <p id="msg_error"></p>
+                     </div>
+
+                     <button type="submit" class="btn btn-lg btn-login">Login</button>
+                     <h3 class="back-btn text-center">
+                        <a href="#" ng-click="l.back()" ng-show="l.back">
+                           <i class="fa fa-fw icon-turn-back-left"></i>
+                        </a>
+                     </h3>
+                  </div>
+               </form>
+
+               <!-- register -->
+               <form id="regLightForm" role="form" novalidate ng-show="l.lgReg" class="register-padding">
+                  <!-- regForm -->
+                  <!-- register -->
+                  <div class="animated fadeInUp TwoSecDelay">
+                     <input type="text" id="username" class="form-control logreg" placeholder="Username">
+
+                     <input type="password" id="password" class="form-control logreg" placeholder="Password">
+
+                     <input type="text" id="email" class="form-control logreg" placeholder="Email (preferably PayPal friendly)"disabled>
+
+                     <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           <input type="text" id="firstname" class="form-control logreg" placeholder="Name">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           <input type="text" id="lastname" class="form-control logreg" placeholder="Last Name">
+                        </div>
+                     </div>
+                     <input type="text" id="movile" class="form-control logreg" placeholder="Mobile Number (include country code" disabled>
+                     <input type="text" id="profile" class="form-control" placeholder="Profile info" disabled>
+                     <br>
+                  </div>
+                  <div class="animated fadeInUp ThreeSecDelay">
+                     <div class="alert alert-danger" id="alert_error_2">
+                        <a class="close" onclick="$('#alert_error_2').hide()">×</a>
+                        <p id="msg_error_2"></p>
+                     </div>
+
+                     <div class="alert alert-danger alert-suc" id="alert_suc">
+                        <a class="close" onclick="$('#alert_suc').hide()">×</a>
+                        <p>Registration completed.</p>
+                        <!-- For non-invited user, please validate your account.-->
+                     </div>
+
+                     <button type="submit" class="btn btn-lg btn-login">Register</button>
+                     <h3 class="back-btn text-center">
+                        <a href="#" ng-click="l.back()" ng-show="l.back">
+                           <i class="fa fa-fw icon-turn-back-left"></i>
+                        </a>
+                     </h3>
+                  </div>
+               </form>
+
+               <!-- validation -->
+               <form id="valForm" role="form" novalidate ng-show="l.lgVal" class="register-padding">
+                  <div class="animated fadeInUp TwoSecDelay">
+                     <input type="text" id="userVal" class="form-control logreg" required="required" placeholder="Username">
+
+                     <input type="text" id="mailVal" class="form-control logreg" required="required" placeholder="Email">
+
+                     <input type="text" id="movileVal" class="form-control logreg" required="required" placeholder="Mobile Number">
+
+                     <input type="text" id="codeVal" class="form-control logreg" required="required" placeholder="Validation Code">
+                     <br>
+                  </div>
+
+                  <div class="animated fadeInUp ThreeSecDelay">
+                     <div class="alert alert-danger" id="alert_error_3">
+                        <a class="close" onclick="$('#alert_error_3').hide()">×</a>
+                        <p id="msg_error_3"></p>
+                     </div>
+
+                     <div class="alert alert-danger alert-suc" id="alert_suc_2">
+                        <a class="close" onclick="$('#alert_suc_2').hide()">×</a>
+                        <p>Validation complete.</p>
+                     </div>
+
+                     <button id="confBTN" type="submit" class="btn btn-lg btn-login">Confirm</button>
+                     <h3 class="back-btn text-center">
+                        <a href="#" ng-click="l.back()" ng-show="l.back">
+                           <i class="fa fa-fw icon-turn-back-left"></i>
+                        </a>
+                     </h3>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <br class="hidden-xs">
+         <br class="hidden-xs">
+         <h5 class="text-center animated fadeInUp ThreeSecDelay">This is a prototype with basic Gifting Mechanism enabled, operating with real money. When developed, projects will provide group privacy.<br/>By invitation only.</h5>
+      </div>
+   </div>
+
+   <script type="text/javascript">
+   $(document).ready(function() {
+      $('#alert_error').hide();
+      $('#loginForm').on('submit', function(e){
+         e.preventDefault();
+         $.ajax({
+            type: 'POST',
+            url: '/login',
+            data: {
+               user_name: $('#user').val(),
+               password: $('#pass').val()
+            },
+
+            success: function(result) {
+               if(!result.success){
+                  $('#alert_error').show();
+                  $('#msg_error').html(result.msg);
+               }else{
+                  $(location).attr('href',"/");
+               }
+            },
+
+            error: function(xhr, ajaxOptions, thrownError) {
+               console.log(xhr.status);
+               console.log(thrownError);
+            },
+         });
+      });
+   });
+   </script>
+
+   <script type="text/javascript">
+   $(document).ready(function() {
+      $('#alert_error_2').hide();
+      $('#alert_suc').hide();
+      $('#regLightForm').on('submit', function(e){ //regForm
+         e.preventDefault();
+         $.ajax({
+            type: 'POST',
+            url: '/lightregister',
+            data: {
+               first_name: $("#firstname").val(),
+               last_name: $("#lastname").val(),
+               user_name: $('#username').val(),
+               password: $('#password').val(),
+            },
+
+            success: function(result) {
+               console.log(result);
+
+               if(!result.success){
+                  $('#alert_error_2').show();
+                  $('#msg_error_2').html(result.msg);
+               } else {
+                  $('#alert_suc').show();
+                  setTimeout(window.location.reload.bind(window.location), 1000);
+               }
+            },
+
+            error: function(xhr, ajaxOptions, thrownError) {
+               console.log(xhr.status);
+               console.log(thrownError);
+            },
+         });
+      });
+   });
+   </script>
+
+   <script type="text/javascript">
+   $(document).ready(function() {
+      $('#alert_error_3').hide();
+      $('#alert_suc_2').hide();
+      $('#valForm').on('submit', function(e){
+         e.preventDefault();
+         $.ajax({
+            type: 'POST',
+            url: '/register/validation',
+            data: {
+               userVal: $('#userVal').val(),
+               mailVal: $('#mailVal').val(),
+               movileVal: $('#movileVal').val(),
+               codeVal : $('#codeVal').val(),
+            },
+
+            success: function(result) {
+               console.log(result);
+               if(!result.success){
+                  console.log("error");
+                  console.log(result);
+                  $('#alert_error_3').show();
+                  $('#msg_error_3').html(result.msg);
+               }else{
+                  $('#alert_suc_2').show();
+                  $('#confBTN').addClass("disabled");
+                  setTimeout(window.location.reload.bind(window.location), 1000);
+               }
+            },
+
+            error: function(xhr, ajaxOptions, thrownError) {
+               console.log(xhr.status);
+               console.log(thrownError);
+            },
+         });
+      });
+   });
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Moxy</title>
+   <!-- Meta -->
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <meta name="keywords" content="MediaCenter, Template, eCommerce">
+   <meta name="robots" content="all">
+
+   <!-- Animate CSS -->
+   <link href="/../css/animate.css" rel="stylesheet">
+
+   <!-- Bootstrap Core CSS -->
+   <link href="/../css/bootstrap.min.css" rel="stylesheet">
+
+   <!-- Side Bar CSS -->
+   <link href="/../css/component.css" rel="stylesheet">
+   <link href="/../css/default.css" rel="stylesheet">
+
+   <!-- Font Awesome CSS -->
+   <link href="/../css/font-awesome.min.css" rel="stylesheet">
+
+   <!-- PICTO Font -->
+   <link href="/../pictoicons/css/picto.css" rel="stylesheet">
+
+   <!-- SELECT2 CSS -->
+   <link href="/../css/select2.min.css" rel="stylesheet">
+
+   <!-- Customizable CSS -->
+   <link href="/../css/main.css" rel="stylesheet">
+      <!-- Javascripts -->
+   <script src="/../js/jquery.min.js"></script>
+   <script src="/../js/bootstrap.min.js"></script>
+   <script src="/../js/angular.min.js"></script>
+   <script src="/../js/select2.full.min.js"></script>
+   <script src="/../js/rowlink.js"></script>
+   <script src="/../js/hammer.min.js"></script>
+   <script src="/../js/ecosquared.js"></script>
+</head>
+
+<body id="body" ng-app="ecosquared" ng-cloak>
+   <div ng-controller="mainCtrl as m">
+      <!-- Modals Begin -->
+      <% include modules/help-menu2 %>
+      <!-- Modals End -->
+
+      <!-- Navbar Begin -->
+      <% include modules/navbar %>
+      <!-- Navbar End -->
+
+      <!-- Container Begin -->
+      <div class="container innerAll animated fadeIn ThreeSecDelay">
+         <div class="panel panel-default">
+            <div class="panel-heading" role="tab" style="border-bottom: 0">
+               <h4 class="panel-title text-center">
+                  <button type="button" class="btn btn-default pull-left" style="margin-top: -7px; padding-top: 7px" data-toggle="modal" data-target="#modal-user-info">
+                     <i class="fa fa-fw icon-visual-eye"></i>
+                  </button>
+                  <span style="margin-left: -30px">Balance: <span ng-show="m.load">Loading...</span> <span ng-show="m.pound">£</span> {{ m.Balance | number:2 }}</span>
+               </h4>
+            </div>
+         </div>
+         <!-- Panels Begin -->
+         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-hide="m.panels">
+            <!-- Product Begin -->
+            <% include modules/prod %>
+            <!-- Product End -->
+
+            <!-- Project Begin -->
+            <% include modules/project %>
+            <!-- Project End -->
+
+            <!-- Person Begin -->
+            <% include modules/person %>
+            <!-- Person End -->
+         </div>
+         <% include modules/create %>
+         <% include modules/invite %>
+         <% include modules/accept %>
+         <!-- Panels End -->
+      </div>
+      <!-- Container End -->
+
+      <!-- Footer Begin -->
+      <% include modules/footer %>
+      <!-- Footer End -->
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- POST FORMS  -->
+   <script src="/../js/forms.js"></script>
+</body>
+</html>

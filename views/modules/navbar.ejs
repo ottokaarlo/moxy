@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+   <div class="container animated fadeInDown OneSecDelay">
+
+      <div id="header" ng-hide="m.defNav">
+         <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+               <button type="button" class="btn btn-default no-margin-bot" ng-click="m.sortOurVj()">
+                  <i class="fa fa-fw icon-group"></i>
+               </button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+               <button type="button" class="btn btn-default" ng-click="m.sortName()">
+                  <h2 style="margin-bottom: 3px; margin-top: 1px">&nbsp;abc&nbsp;</h2>
+               </button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+               <button type="button" class="btn btn-default" ng-click="m.sortTime()">
+                  <i class="fa fa-fw icon-time-clock"></i>
+               </button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
+               <button type="button" class="btn btn-default" ng-click="m.sortMyVj()">
+                  <i class="fa fa-fw icon-user-2"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <div id="header" ng-show="m.accNav">
+         <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+               <button type="button" class="btn btn-default no-margin-bot" ng-click="m.sortGiftCo()">
+                  <i class="fa fa-fw icon-group"></i>
+               </button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+               <button type="button" class="btn btn-default" ng-click="m.sortCName()">
+                  <h2 style="margin-bottom: 3px; margin-top: 1px">&nbsp;abc&nbsp;</h2>
+               </button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+               <button type="button" class="btn btn-default" ng-click="m.sortCTime()">
+                  <i class="fa fa-fw icon-time-clock"></i>
+               </button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
+               <button type="button" class="btn btn-default" ng-click="m.sortCmyVj()">
+                  <i class="fa fa-fw icon-user-2"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+</nav>
